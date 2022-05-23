@@ -1,0 +1,101 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="{% static 'algoritm/images/favicon_am2.ico' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'algoritm/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'algoritm/css/style.css' %}">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <header class="header">
+        {% block mainmenu%}
+        <div class="container h-100">
+            <div class="row header__content align-content-center">
+                <a href="#" class="header__logo col-1">
+                    <img src="{% static 'algoritm/images/Mantarin-2.png' %}" alt="" class="img__logo header__logo-top">
+                </a>
+
+                <nav class="menu col-5 header__menu offset-1">
+                    <ul class="menu__list row justify-content-between align-items-center">
+                        {% for m in menu %}
+                        <li class="menu__item col"><a href="#" class="menu__link">{{ m }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </nav>
+                <div class="header__button col-2 offset-2">
+                    <a href="" class="header__login button">login</a>
+                </div>
+
+                <!-- <nav class="col-3 header__button offset-1">
+                    <ul class="button__list">
+                        <li><a href="" class="header__login button reg__button">Регистрация</a></li>
+                        <li><a href="" class="header__login button log__button">Войти</a></li>
+                    </ul>
+                </nav> -->
+            </div>
+        </div>
+        {% endblock mainmenu%}
+    </header>
+
+{% block content%}
+{% endblock content%}
+<footer class="footer">
+        <div class="container">
+            <div class="row">
+                <nav class="col-md-2 col-sm-6">
+                    <ul class="footer__menu">
+                        <li class="footer__menu-item"><a href="#" class="footer__menu-link">Отчет ДДС</a></li>
+                        <li class="footer__menu-item"><a href="#" class="footer__menu-link">Фин модель</a></li>
+                        <li class="footer__menu-item"><a href="#" class="footer__menu-link">Календарь расходов</a></li>
+                        <li class="footer__menu-item"><a href="#" class="footer__menu-link">Телеграм боты</a></li>
+                        <li class="footer__menu-item"><a href="#" class="footer__menu-link">Дашборды</a></li>
+                    </ul>
+                </nav>
+                <nav class="col-md-2 col-sm-6">
+                    <ul class="footer__menu">
+                        <li class="footer__menu-item"><a href="#" class="footer__menu-link">Маркетплейсы</a></li>
+                        <li class="footer__menu-item"><a href="#" class="footer__menu-link">Маркетинг</a></li>
+                        <li class="footer__menu-item"><a href="#" class="footer__menu-link">Отдел продаж</a></li>
+                        <li class="footer__menu-item"><a href="#" class="footer__menu-link">Финотдел</a></li>
+                        <li class="footer__menu-item"><a href="#" class="footer__menu-link">Бухгалтерия</a></li>
+                    </ul>
+                </nav>
+                <div class="footer__contacts col-md-4 col-sm-6 offset-md-1">
+                    <h4 class="footer__title title-h4">Contact us</h4>
+                    <a href="mailto:" class="footer__contact w-100 d-flex align-items-center">
+                        <img src="{% static 'algoritm/images/mail.svg'%}" alt="" class="footer__icon">
+                        <span class="footer__contact-text">help@am2.com</span>
+                    </a>
+                    <a href="#" class="footer__contact w-100 d-flex align-items-center">
+                        <img src="{% static 'algoritm/images/map.svg'%}" alt="" class="footer__icon">
+                        <span class="footer__contact-text">8575 Nowlin Rd undefined Lewiston,
+                            Alabama 73143 United States</span>
+                    </a>
+                </div>
+                <div class="footer__contacts col-md-2 col-sm-4">
+                    <h4 class="footer__title title-h4">Follow us</h4>
+                    <nav class="social">
+                        <ul class="social__list d-flex justify-content-between align-items-center">
+                            <li class="social__item"><a href="#" class="social__link"><img src="{% static 'algoritm/images/facebook.svg'%}" alt="" class="social__icon"></a></li>
+                            <li class="social__item"><a href="#" class="social__link"><img src="{% static 'algoritm/images/twiter.svg'%}" alt="" class="social__icon"></a></li>
+                            <li class="social__item"><a href="#" class="social__link"><img src="{% static 'algoritm/images/instagram.svg'%}" alt="" class="social__icon"></a></li>
+                            <li class="social__item"><a href="#" class="social__link"><img src="{% static 'algoritm/images/youtube.svg'%}" alt="" class="social__icon"></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="copyright d-flex align-items-center justify-content-center">BY ALEX FROM UFA 2022</div>
+    </footer>
+    <script src="{% static 'algoritm/js/bootstrap.min.js'%}"></script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+{% extends 'algoritm/base.html' %}
+
+{% block content%}
+
+<main>
+        <section class="main-block align-items-center">
+            <div class="main-block__background"></div>
+            <div class="container">
+                <div class="row">
+                    <h1 class="main-block__title col-6">Аналитика данных на каждый день</h1>
+                </div>
+                <div class="row">
+                    <p class="main-block__text col-6">Вся компания в одном дашборде. Отчет для собственника и управленца. Объединяем данные из разных направлений и отделов в замкнутый контур</p>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        <a href="#" class="button__main">Связаться</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="banner container">
+            <div class="row align-items-center h-100">
+                <h2 class="banner__title col-4 col-lg-2 col-sm-12">Рекомендуем протестировать отчеты</h2>
+                <div class="offset-lg-1 col-lg-2 col-sm-3">
+                    <a href="#" class="banner__link button_orange">Отчет ДДС</a>
+                </div>
+                <div class="col-lg-2 col-sm-3 mb-5 mt-5">
+                    <a href="#" class="banner__link button_orange">Фин модель</a>
+                </div>
+                <div class="col-lg-2 col-sm-3">
+                    <a href="#" class="banner__link button_orange">План расходов</a>
+                </div>
+            </div>
+        </section>
+        <section class="learn container">
+            <div class="row align-items-center">
+                <div class="learn__info col-md-4">
+                    <h3 class="title-h3">Дашборды для бизнеса</h3>
+                    <p class="learn__text">Информация становится понятной. Рутинные отчеты и бесконечные цифры обретают форму и динамику </p>
+                </div>
+                <div class="col-md-4 col-sm-5">
+                    <div class="learn__card" style="background-image: url(../../static/algoritm/images/ecom.png);">
+                        <h4 class="learn__card-title learn__card-background">Решения для Ecom</h4>
+                        <div class="row justify-content-center"><a href="#" class="button">Подробнее</a></div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-5">
+                    <div class="learn__card" style="background-image: url(../../static/algoritm/images/profit.png);">
+                        <h4 class="learn__card-title learn__card-background">Решения для микробизнеса</h4>
+                        <div class="row justify-content-center"><a href="#" class="button col-2">Подробнее</a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="follow">
+            <div class="container">
+                <h3 class="follow__title title-h3 col-12">Популярные услуги</h3>
+                <div class="row justify-content-center">
+                    <div class="mb-xl-0 mb-5 col-lg-4 col-md-6 col-sm-12">
+                        <div class="follow__card">
+                            <h4 class="follow__card-title">Фин отчеты</h4>
+                            <p class="follow__card-text">Порядок в финансах на каждый день. Удобная система планирования и учета</p>
+                            <ul class="follow__card-list">
+                                <li class="follow__card-item">Отчет о Движении Денежных Средств</li>
+                                <li class="follow__card-item">Календарь расходов</li>
+                                <li class="follow__card-item">Финансовая модель</li>
+                            </ul>
+                            <a href="#" class="follow__card-link"><img src="../../static/algoritm/images/follow-arrow-blue.svg" alt="иконка стрелки"></a>
+                        </div>
+                    </div>
+                    <div class="mb-xl-0 mb-5 col-lg-4 col-md-6 col-sm-12">
+                        <div class="follow__card follow__card-green">
+                            <h4 class="follow__card-title">Дашборды</h4>
+                            <p class="follow__card-text">Информация из разных источников в единый дашборд. Все показатели вашего бизнеса в одном окне</p>
+                            <ul class="follow__card-list">
+                                <li class="follow__card-item">Макретинг</li>
+                                <li class="follow__card-item">Отдел продаж</li>
+                                <li class="follow__card-item">Финансы</li>
+                            </ul>
+                            <a href="#" class="follow__card-link"><img src="../../static/algoritm/images/follow-arrow-green.svg" alt="иконка стрелки"></a>
+                        </div>
+                    </div>
+                    <div class="mb-xl-0 mb-5 col-lg-4 col-md-6 col-sm-12">
+                        <div class="follow__card follow__card-red">
+                            <h4 class="follow__card-title">Telegram боты</h4>
+                            <p class="follow__card-text">Автоматизируйте рутинные процессы и освободите сотрудников от ненужных задач</p>
+                            <ul class="follow__card-list">
+                                <li class="follow__card-item">Ускорить общение с клиентом</li>
+                                <li class="follow__card-item">Контроль сотрудников</li>
+                                <li class="follow__card-item">Увеличение КПД отдела продаж</li>
+                            </ul>
+                            <a href="#" class="follow__card-link"><img src="../../static/algoritm/images/follow-arrow-red.svg" alt="иконка стрелки"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="teachers position-relative">
+            <img src="../../static/algoritm/images/contact.png" alt="баннер на фоне сотрудников" class="teachers__backgound position-absolute">
+            <div class="container teachers__container">
+                <div class="row">
+                    <h2 class="teachers__title title-h2 col-12">Наша команда</h2>
+
+                <div class="col-md-3 col-sm-6 mt-5">
+                    <div class="teachers__img d-flex justify-content-center align-items-center">
+                        <img src="../../static/algoritm/images/alex.jpeg" alt="Фото сотрудника" class="teachers__photo">
+                    </div>
+                    <h4 class="teachers__name title-h4">Alex</h4>
+                    <p class="teachers__position">Chief Technical Officer</p>
+                </div>
+                <div class="col-md-3 col-sm-6 mt-5">
+                    <div class="teachers__img d-flex justify-content-center align-items-center">
+                        <img src="../../static/algoritm/images/mike.jpg" alt="Фото сотрудника" class="teachers__photo">
+                    </div>
+                    <h4 class="teachers__name title-h4">Mike</h4>
+                    <p class="teachers__position">Chief Business Officer</p>
+                </div>
+                <div class="col-md-3 col-sm-6 mt-5">
+                    <div class="teachers__img d-flex justify-content-center align-items-center">
+                        <img src="../../static/algoritm/images/john.jpg" alt="Фото сотрудника" class="teachers__photo">
+                    </div>
+                    <h4 class="teachers__name title-h4">John</h4>
+                    <p class="teachers__position">Chief Commercial Officer</p>
+                </div>
+                <div class="col-md-3 col-sm-6 mt-5">
+                    <div class="teachers__img d-flex justify-content-center align-items-center">
+                        <img src="../../static/algoritm/images/serge.jpg" alt="Фото сотрудника" class="teachers__photo">
+                    </div>
+                    <h4 class="teachers__name title-h4">Serge</h4>
+                    <p class="teachers__position">Chief Information Officer</p>
+                </div>
+                </div>
+            </div>
+        </section>
+        <section class="subscribe container">
+            <div class="row subscribe__banner align-items-center">
+                <h2 class="title-h2 subscribe__title offset-1 col-md-4 col-sm-12">Оставьте email и мы с вами свяжемся</h2>
+                <div class="offset-2 col-md-4 col-sm-6">
+                    <form action="#" method="POST" class="subscribe__form position-relative">
+                        <input type="text" name="email" placeholder="Введите email" class="subscribe__input w-100 border border-white">
+                        <button class="subscribe__btn position-absolute d-flex justify-content-center align-items-center">
+                            <img src="../../static/algoritm/images/follow-arrow-red.svg" alt="стрелка">
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock content%}

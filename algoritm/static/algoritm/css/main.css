@@ -1,0 +1,86 @@
+:root{
+    
+    font-size: 10px;
+}
+
+body{
+    margin: 0;
+    font-family: 'Playfair Display';
+}
+
+.button{
+    height: 5rem;
+    width: 13rem;
+    border: 0.2rem solid #BAF1BE;
+    /*border-width: 0.01rem;*/
+    box-shadow: 0 0.4rem 0.4rem #DDECDB;
+    box-sizing: border-box;
+    border-radius: 2.4rem;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    font-size: 1.6rem;
+    line-height: 1.9rem;
+    color: #000000;
+    text-decoration: none;
+    background-color: transparent;
+    transition: color 0.6s ease, background-color 0.6s ease;
+    outline: none;
+}
+
+.button:hover{
+    /*background-color: linear-gradient(90.08deg, #BAF1BE 0.05%, #85E48B 92.92%);*/
+    background-color: #BAF1BE;
+    opacity: .7;
+    color: #FE6201;;
+    font-weight: 400;
+    transition: color 0.6s ease, background-color 0.6s ease;
+    outline: none;
+}
+
+.button__main{
+    height: 5rem;
+    width: 13rem;
+    border: 0.2rem solid #BAF1BE;
+    box-shadow: 0 0.4rem 0.4rem #DDECDB;
+    border-radius: 2.4rem;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    font-size: 1.6rem;
+    line-height: 1.9rem;
+    color: #000000;
+    text-decoration: none;
+    background-color: #BAF1BE;
+    transition: color 0.6s ease, background-color 0.6s ease;
+    outline: none;
+}
+
+.button__main:hover{
+    background-color: transparent;
+    opacity: .7;
+    color: #FE6201;
+    font-weight: 400;
+    transition: color 0.6s ease, background-color 0.6s ease;
+    outline: none;
+    text-decoration: none;
+}
+
+.button_orange{
+    height: 4.1rem;
+    background: linear-gradient(90.08deg, #FE6201 0.05%, #ED4B7C 99.92%);
+    box-shadow: 0rem .4rem .4rem rgba(254, 98, 1, 0.3);
+    border-radius: .8rem;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    text-decoration: none;
+    transition: background-color 0.6s ease, color 0.6s ease;
+}
+
+.button_orange:hover{
+    text-decoration: none;
+    color: #FE6201;
+    background: transparent;
+    border: 1px solid #FE6201;
+}

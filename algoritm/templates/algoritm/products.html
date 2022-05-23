@@ -1,0 +1,16 @@
+{% extends 'algoritm/base.html' %}
+
+{% block content%}
+
+<h1>{{ title }}</h1>
+<p>О сайте</p>
+
+{% for p in posts %}
+<ul>
+    <li>
+        <h2>{{ p.title }}</h2>
+        <p>{{ p.content }}</p>
+    </li>
+</ul>
+{% endfor %}
+{% endblock content%}

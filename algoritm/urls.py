@@ -4,9 +4,6 @@ from .views import *
 
 
 urlpatterns = [
-    path('', index),
-    path('cats/<int:catid>/', categories),
-
+    path('', index, name='home'),
+    path('products/', products, name='products'),
 ]
-
-handler404 = pageNotFound
