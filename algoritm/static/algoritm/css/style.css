@@ -1,4 +1,5 @@
 @import url("main.css");
+@import url("products.css");
 
 /* HEADER */
 
@@ -28,6 +29,7 @@
     list-style: none;
 
 }
+
 
 .menu__link{
     text-decoration: none;

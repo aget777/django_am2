@@ -1,16 +1,50 @@
 {% extends 'algoritm/base.html' %}
 
 {% block content%}
+<section class="container content__block">
+        <div class="row">
+            <div class="col-md-2 col-sm-4 m-10">
+                <nav class ="bg-light menu-vertical mb-5 h-100">
+                    <ul class ="nav navbar-nav">
+                        {% if cat_selected == 0 %}
+                            <li class ="menu__item_verical  mb-4 mt-4">Все категории</li>
+                        {% else %}
+                            <li class="mb-4 mt-4"><a class ="menu__link_verical" href="{% url 'products' %}">Все категории</a></li>
+                        {% endif %}
 
-<h1>{{ title }}</h1>
-<p>О сайте</p>
+                        {% for c in cats %}
+                            {% if c.pk == cat_selected %}
+                                <li class ="menu__item_verical mb-4 mt-4">{{ c.name }}</li>
+                            {% else %}
+                                <li class="mb-4 mt-4"><a class ="menu__link_verical" href="{{ c.get_absolute_url }}">{{ c.name }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </nav>
+            </div>
 
-{% for p in posts %}
-<ul>
-    <li>
-        <h2>{{ p.title }}</h2>
-        <p>{{ p.content }}</p>
-    </li>
-</ul>
-{% endfor %}
+            <ul class="col-9">
+                {% for p in posts%}
+                    <li class="container post__area">
+                        <div class="d-flex flex-row title__row">
+                            <h4 class="content__title">{{ p.title }}</h4>
+                            <p>Категория: {{ p.cat}}</p>
+                        </div>
+                        <div class ="container">
+                            <img class="image_preview img-responsive" src="../../static/algoritm/images/dashboard.jpg">
+                            <p class="content__block-text"> {{ p.content|truncatewords:50 }}  </p>
+
+                        </div>
+        <!--                <div class="row justify-content-end"><a href="#" class="button col-2">Подробнее</a></div>-->
+                        <div class="row justify-content-end mb-5">
+                            <div class="col-lg-2 col-sm-3">
+                                <a href="{{ p.get_absolute_url }}" class="banner__link button_orange">Подробнее</a>
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+
+        </div>
+    </section>
 {% endblock content%}

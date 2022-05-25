@@ -32,7 +32,7 @@ body{
     /*background-color: linear-gradient(90.08deg, #BAF1BE 0.05%, #85E48B 92.92%);*/
     background-color: #BAF1BE;
     opacity: .7;
-    color: #FE6201;;
+    color: #FE6201;
     font-weight: 400;
     transition: color 0.6s ease, background-color 0.6s ease;
     outline: none;
