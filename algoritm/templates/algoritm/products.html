@@ -31,13 +31,17 @@
                             <p>Категория: {{ p.cat}}</p>
                         </div>
                         <div class ="container">
-                            <img class="image_preview img-responsive" src="../../static/algoritm/images/dashboard.jpg">
+                            {%if p.photo %}
+                                <img class="image_preview img-responsive" src="{{ p.photo.url }}">
+                            {% else %}
+                                <img class="image_preview img-responsive" src="../../static/algoritm/images/dashboard.jpg">
+                            {% endif %}
                             <p class="content__block-text"> {{ p.content|truncatewords:50 }}  </p>
 
                         </div>
         <!--                <div class="row justify-content-end"><a href="#" class="button col-2">Подробнее</a></div>-->
-                        <div class="row justify-content-end mb-5">
-                            <div class="col-lg-2 col-sm-3">
+                        <div class="row justify-content-end mb-5 button__block">
+                            <div class="col-lg-4 col-sm-3">
                                 <a href="{{ p.get_absolute_url }}" class="banner__link button_orange">Подробнее</a>
                             </div>
                         </div>
