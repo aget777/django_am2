@@ -30,6 +30,9 @@
 
 }
 
+.menu__item{
+    padding-right: 1.5rem;
+}
 
 .menu__link{
     text-decoration: none;

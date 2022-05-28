@@ -1,5 +1,5 @@
 from django.http import HttpResponse, HttpResponseNotFound, Http404
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
 
 menu = [{'title': 'Главная', 'url_name': 'home'},
@@ -18,9 +18,8 @@ def index(request):
 
 def products(request):
     posts = Boards.objects.all()
-    cats = Category.objects.all()
+
     context = {
-        'cats': cats,
         'posts': posts,
         'menu': menu,
         'title': 'Услуги',
@@ -29,28 +28,35 @@ def products(request):
     return render(request, 'algoritm/products.html', context=context)
 
 
-def show_category(request, cat_id):
-    posts = Boards.objects.filter(cat_id=cat_id)
-    cats = Category.objects.all()
+def show_category(request, cat_slug):
+    cat = Category.objects.filter(slug=cat_slug)
+    posts = Boards.objects.filter(cat_id=cat[0].id)
+
 
     if len(posts) == 0:
         raise Http404()
 
     context = {
         'posts': posts,
-        'cats': cats,
         'menu': menu,
         'title': 'Отображение по категориям',
-        'cat_selected': cat_id,
+        'cat_selected': cat[0].id,
     }
     return render(request, 'algoritm/products.html', context=context)
 
 
 def addpage(request):
-    return HttpResponse("Добавить статью")
+    return render(request, 'algoritm/addpage.html', {'menu': menu, 'title': 'Добавление статьи'})
 
-def show_post(request, post_id):
-    return HttpResponse(f"{post_id}")
+def show_post(request, post_slug):
+    post = get_object_or_404(Boards, slug=post_slug)
+    context = {
+        'post': post,
+        'menu': menu,
+        'title': post.title,
+        'cat_selected': post_slug
+    }
+    return render(request, 'algoritm/post.html', context=context)
 
 
 def contact(request):

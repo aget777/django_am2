@@ -1,0 +1,39 @@
+{% extends 'algoritm/base.html' %}
+{% load algoritm_tags %}
+{% block content%}
+<section class="container content__block">
+        <div class="row">
+            <div class="col-md-2 col-sm-4 m-10">
+                <nav class ="bg-light menu-vertical mb-5 h-100">
+                    <ul class ="nav navbar-nav">
+                        {% if cat_selected == 0 %}
+                            <li class ="menu__item_verical  mb-4 mt-4">Все категории</li>
+                        {% else %}
+                            <li class="mb-4 mt-4"><a class ="menu__link_verical" href="{% url 'products' %}">Все категории</a></li>
+                        {% endif %}
+                            {% show_categories cat_selected=cat_selected %}
+
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="col-9">
+                <div class="container post__area">
+                    <div class="d-flex flex-row title__row">
+                        <h2 class="content__title">{{ post.title }}</h2>
+                        <p>Категория: {{ post.cat}}</p>
+                    </div>
+                    <div class ="container">
+                        {%if post.photo %}
+                            <img class="image_full_size img-responsive" src="{{ post.photo.url }}">
+                        {% else %}
+                            <img class="image_full_size img-responsive" src="../../static/algoritm/images/dashboard.jpg">
+                        {% endif %}
+                        <p class="content__block-text"> {{ post.content }}  </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+{% endblock content%}

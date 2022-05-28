@@ -1,5 +1,5 @@
 {% extends 'algoritm/base.html' %}
-
+{% load algoritm_tags %}
 {% block content%}
 <section class="container content__block">
         <div class="row">
@@ -12,13 +12,15 @@
                             <li class="mb-4 mt-4"><a class ="menu__link_verical" href="{% url 'products' %}">Все категории</a></li>
                         {% endif %}
 
-                        {% for c in cats %}
-                            {% if c.pk == cat_selected %}
-                                <li class ="menu__item_verical mb-4 mt-4">{{ c.name }}</li>
-                            {% else %}
-                                <li class="mb-4 mt-4"><a class ="menu__link_verical" href="{{ c.get_absolute_url }}">{{ c.name }}</a></li>
-                            {% endif %}
-                        {% endfor %}
+<!--                        {% getcats as categories %}-->
+                            {% show_categories cat_selected=cat_selected %}
+<!--                        {% for c in categories %}-->
+<!--                            {% if c.pk == cat_selected %}-->
+<!--                                <li class ="menu__item_verical mb-4 mt-4">{{ c.name }}</li>-->
+<!--                            {% else %}-->
+<!--                                <li class="mb-4 mt-4"><a class ="menu__link_verical" href="{{ c.get_absolute_url }}">{{ c.name }}</a></li>-->
+<!--                            {% endif %}-->
+<!--                        {% endfor %}-->
                     </ul>
                 </nav>
             </div>
@@ -39,7 +41,7 @@
                             <p class="content__block-text"> {{ p.content|truncatewords:50 }}  </p>
 
                         </div>
-        <!--                <div class="row justify-content-end"><a href="#" class="button col-2">Подробнее</a></div>-->
+                            <!--<div class="row justify-content-end"><a href="#" class="button col-2">Подробнее</a></div>-->
                         <div class="row justify-content-end mb-5 button__block">
                             <div class="col-lg-4 col-sm-3">
                                 <a href="{{ p.get_absolute_url }}" class="banner__link button_orange">Подробнее</a>
