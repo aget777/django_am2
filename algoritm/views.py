@@ -1,6 +1,7 @@
 from django.http import HttpResponse, HttpResponseNotFound, Http404
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
+from .forms import *
 
 menu = [{'title': 'Главная', 'url_name': 'home'},
         {'title': 'Услуги', 'url_name': 'products'},
@@ -46,7 +47,18 @@ def show_category(request, cat_slug):
 
 
 def addpage(request):
-    return render(request, 'algoritm/addpage.html', {'menu': menu, 'title': 'Добавление статьи'})
+    if request.method == 'POST':
+        form = AddPostForm(request.POST)
+        if form.is_valid():
+            print(form.cleaned_data)
+            try:
+                Boards.objects.create(**form.cleaned_data)
+                return redirect('home')
+            except:
+                form.add_error(None, 'Ошибка добавления поста')
+    else:
+        form = AddPostForm()
+    return render(request, 'algoritm/addpage.html', {'form': form, 'menu': menu, 'title': 'Добавление статьи'})
 
 def show_post(request, post_slug):
     post = get_object_or_404(Boards, slug=post_slug)

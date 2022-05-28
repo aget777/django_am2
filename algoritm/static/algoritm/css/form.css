@@ -1,0 +1,71 @@
+textarea {
+resize: none;
+}
+
+input::-webkit-inner-spin-button {
+-webkit-appearance: none;
+}
+
+.form__block-title{
+    margin-top: 1.5rem;
+}
+
+.form__area{
+    margin-left: 15rem;
+}
+
+.form_for_notes{
+    margin: 2rem 5rem;
+}
+
+.notes__block{
+    margin-bottom: 2rem;
+}
+
+
+.form__block-text{
+    font-weight: normal;
+    font-size: 1.5rem;
+    line-height: 2.1rem;
+    color: #6B6B6B;
+    outline: none;
+}
+
+.textarea__block{
+    resize: none;
+}
+
+.input_area_space{
+    width: 100%;
+}
+.select__category_block{
+    box-sizing: border-box;
+    padding-right: 2.5rem;
+}
+
+
+.form__check-text{
+    font-weight: normal;
+    font-size: 1.5rem;
+    line-height: 2.1rem;
+    color: #6B6B6B;
+}
+
+.form__block-button{
+    margin: 6rem 0;
+}
+
+.form__button{
+    border-radius: 0.25rem;
+}
+
+.select__area_block{
+    width: 100%;
+}
+
+
+.form-error{
+    list-style: none;
+    padding: 0;
+    color: #CC0000;
+}

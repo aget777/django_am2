@@ -1,10 +1,68 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'algoritm/base.html' %}
+{% load algoritm_tags %}
+{% block content%}
+<section class="container content__block">
+        <div class="row">
+            <div class="col-md-2 col-sm-4 m-10">
+                <nav class ="bg-light menu-vertical mb-5 h-100">
+                    <ul class ="nav navbar-nav">
+                        {% if cat_selected == 0 %}
+                            <li class ="menu__item_verical  mb-4 mt-4">Все категории</li>
+                        {% else %}
+                            <li class="mb-4 mt-4"><a class ="menu__link_verical" href="{% url 'products' %}">Все категории</a></li>
+                        {% endif %}
+                            {% show_categories cat_selected=cat_selected %}
 
-</body>
-</html>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="col-9">
+                <div class="container form__area">
+                    <div class="d-flex flex-row title__row mb-5 form__block-title">
+                        <h2 class="menu__link">{{ title }}</h2>
+                    </div>
+                    <div class ="container">
+                        <!-- <form> -->
+
+                    <form action="{% url 'addpage' %}" method="POST" class="form_for_notes" id="reg_form">
+                        {% csrf_token %}
+
+                        <div class="form-error">{{ form.non_field_errors }}</div>
+
+                        {% for f in form %}
+
+                            <div class="row notes__block align-items-center">
+                                  <label for="{{ f.id_for_label }}" class="col-2 form__block-text">{{ f.help_text }}</label>
+                                  <div class="col-4">{{ f }}</div>
+                            </div>
+                            <div class="form-error">{{ f.errors }}</div>
+                        {%endfor%}
+
+                        <div class="form-group row form__block-button">
+                            <div>
+                                  <div class="col-sm-2">
+                                    <button type="submit" class="header__login form__button button">Отправить</button>
+                                  </div>
+                            </div>
+                        </div>
+                    </form>
+
+<!--                        <form action="{% url 'addpage' %}" method="POST" class="main_form" id="reg_form">-->
+
+<!--                            {% csrf_token %}-->
+<!--                            {% for f in form %}-->
+<!--                            <p class="form__block-text"><label for="{{ f.id_for_label}}" class="col-1">{{ f.label }}</label>{{ f }}</p>-->
+<!--                            {% endfor%}-->
+<!--                            <div class="row">-->
+<!--                                <button class="header__login button" type="submit" value="Отправить">Отправить</button>-->
+<!--                            </div>-->
+<!--                        </form>-->
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+{% endblock content%}
