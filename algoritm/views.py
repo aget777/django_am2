@@ -6,11 +6,8 @@ from django.views.generic import ListView, DetailView, CreateView
 
 from .models import *
 from .forms import *
+from .utils import *
 
-menu = [{'title': 'Главная', 'url_name': 'home'},
-        {'title': 'Услуги', 'url_name': 'products'},
-        {'title': 'Добавить статью', 'url_name': 'addpage'},
-        {'title': 'Обратная связь', 'url_name': 'contact'},]
 
 
 
@@ -23,7 +20,7 @@ def index(request):
 
 
 
-class AlgoritmProducts(ListView):
+class AlgoritmProducts(DataMixin, ListView):
     model = Boards
     template_name = 'algoritm/products.html'
     context_object_name = 'posts'
@@ -31,17 +28,15 @@ class AlgoritmProducts(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['menu'] = menu
-        context['title'] = 'Услуги'
-        context['cat_selected'] = 0
+        c_def = self.get_user_context(title='Услуги')
 
-        return context
+        return dict(list(context.items()) + list(c_def.items()))
 
     def get_queryset(self):
         return Boards.objects.filter(is_published=True)
 
 
-class AlgoritmCategory(ListView):
+class AlgoritmCategory(DataMixin, ListView):
     model = Boards
     template_name = 'algoritm/products.html'
     context_object_name = 'posts'
@@ -52,26 +47,22 @@ class AlgoritmCategory(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['menu'] = menu
-        context['title'] = 'Категория - ' + str(context['posts'][0].cat)
-        context['cat_selected'] = context['posts'][0].cat_id
-        return context
+        c_def = self.get_user_context(title='Категория - ' + str(context['posts'][0].cat), cat_selected=context['posts'][0].cat_id)
 
+        return dict(list(context.items()) + list(c_def.items()))
 
-class AddPage(CreateView):
+class AddPage(DataMixin, CreateView):
     form_class = AddPostForm
     template_name = 'algoritm/addpage.html'
     success_url = reverse_lazy('home')
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['menu'] = menu
-        context['title'] = 'Добавление статьи'
+        c_def = self.get_user_context(title='Добавление статьи')
 
-        return context
+        return dict(list(context.items()) + list(c_def.items()))
 
-
-class ShowPost(DetailView):
+class ShowPost(DataMixin, DetailView):
     model = Boards
     template_name = 'algoritm/post.html'
     slug_url_kwarg = 'post_slug'
@@ -79,11 +70,9 @@ class ShowPost(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['menu'] = menu
-        context['title'] = context['post']
+        c_def = self.get_user_context(title=context['post'])
 
-        return context
-
+        return dict(list(context.items()) + list(c_def.items()))
 
 def contact(request):
     return HttpResponse("Страница контакты")

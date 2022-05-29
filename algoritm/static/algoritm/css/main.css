@@ -6,6 +6,8 @@
 body{
     margin: 0;
     font-family: 'Playfair Display';
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 .button{
