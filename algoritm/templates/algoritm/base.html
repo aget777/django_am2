@@ -36,13 +36,18 @@
 <!--                <div class="header__button col-2 offset-1">-->
 <!--                    <a href="{% url 'login' %}" class="header__login button">login</a>-->
 <!--                </div>-->
-
-                <nav class="col-3 header__button offset-1">
-                    <ul class="button__list">
-                        <li><a href="{% url 'register' %}" class="header__login button reg__button">Регистрация</a></li>
-                        <li><a href="{% url 'login' %}" class="header__login button log__button">Войти</a></li>
-                    </ul>
-                </nav>
+                {% if request.user.is_authenticated %}
+                    <div class="header__button col-2 offset-1">
+                        <a href="{% url 'logout' %}" class="header__login button">Выйти</a>
+                    </div>
+                {% else %}
+                    <nav class="col-3 header__button offset-1">
+                        <ul class="button__list">
+                            <li><a href="{% url 'register' %}" class="header__login button reg__button">Регистрация</a></li>
+                            <li><a href="{% url 'login' %}" class="header__login button log__button">Войти</a></li>
+                        </ul>
+                    </nav>
+                {% endif %}
             </div>
         </div>
         {% endblock mainmenu%}

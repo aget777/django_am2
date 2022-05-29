@@ -1,0 +1,29 @@
+{% extends 'algoritm/base.html' %}
+
+{% block content %}
+    <div class="container content__block">
+        <div class="row">
+        <h1 class="register__block-title">{{ title }}</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-error">{{ form.non_field_errors }}</div>
+
+            {% for f in form %}
+
+                <div class="row notes__block align-items-center">
+                      <label for="{{ f.id_for_label }}" class="col-2 form__block-text">{{ f.help_text }}</label>
+                      <div class="col-4">{{ f }}</div>
+                </div>
+                <div class="form-error">{{ f.errors }}</div>
+            {%endfor%}
+            <div class="form-group row form__block-button">
+                <div>
+                    <div class="col-sm-2">
+                        <button type="submit" class="header__login form__button button">Войти</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+            </div>
+    </div>
+{% endblock %}

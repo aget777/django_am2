@@ -1,7 +1,7 @@
 from django import forms
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
 from .models import *
 
@@ -36,6 +36,10 @@ class RegisterUserForm(UserCreationForm):
         model = User
         fields = ['username', 'password1', 'password2']
 
+
+class LoginUserForm(AuthenticationForm):
+    username = forms.EmailField(max_length=255, label='login_auth', help_text="Email", required=True,widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Введите email'}))
+    password = forms.CharField(max_length=255, label='pas_auth', help_text="Пароль", required=True,widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Введите пароль'}))
 
 
 # class AddPostForm(forms.Form):
