@@ -15,10 +15,12 @@
 <!--                        {% getcats as categories %}-->
 <!--                            {% show_categories cat_selected=cat_selected %}-->
                         {% for c in cats %}
-                            {% if c.pk == cat_selected %}
-                                <li class ="menu__item_verical mb-4 mt-4">{{ c.name }}</li>
-                            {% else %}
-                                <li class="mb-4 mt-4"><a class ="menu__link_verical" href="{{ c.get_absolute_url }}">{{ c.name }}</a></li>
+                            {% if c.boards__count > 0 %}
+                                {% if c.pk == cat_selected %}
+                                    <li class ="menu__item_verical mb-4 mt-4">{{ c.name }}</li>
+                                {% else %}
+                                    <li class="mb-4 mt-4"><a class ="menu__link_verical" href="{{ c.get_absolute_url }}">{{ c.name }}</a></li>
+                                {% endif %}
                             {% endif %}
                         {% endfor %}
                     </ul>
