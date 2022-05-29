@@ -1,5 +1,7 @@
 from django import forms
 from django.core.exceptions import ValidationError
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
 
 from .models import *
 
@@ -24,6 +26,17 @@ class AddPostForm(forms.ModelForm):
             raise ValidationError('Длина должна быть меньше 100 символов')
 
         return title
+
+
+class RegisterUserForm(UserCreationForm):
+    username = forms.EmailField(max_length=255, label='login', help_text="Email", required=True, widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Введите email'}))
+    password1 = forms.CharField(max_length=255, label='pas', help_text="Пароль", required=True, widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Введите пароль'}))
+    password2 = forms.CharField(max_length=255, label='pas2', help_text="Подтверждение пароля", required=True, widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Повторите пароль'}))
+    class Meta:
+        model = User
+        fields = ['username', 'password1', 'password2']
+
+
 
 # class AddPostForm(forms.Form):
 #     title = forms.CharField(max_length=255, label='title', help_text="Заголовок", required=True, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Введите заголовок'}))

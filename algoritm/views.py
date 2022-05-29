@@ -1,6 +1,7 @@
 from django.http import HttpResponse, HttpResponseNotFound, Http404
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
+from django.contrib.auth.forms import UserCreationForm
 
 from django.views.generic import ListView, DetailView, CreateView, View, TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -84,3 +85,14 @@ def login(request):
 
 def pageNotFound(request, excexption):
     return HttpResponseNotFound(f"<h1>Такая страница не найдена</h1>")
+
+class RegisterUsers(DataMixin, CreateView):
+    form_class = RegisterUserForm
+    template_name = 'algoritm/register.html'
+    success_url = reverse_lazy('login')
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        c_def = self.get_user_context(title="Регистрация")
+
+        return dict(list(context.items()) + list(c_def.items()))
