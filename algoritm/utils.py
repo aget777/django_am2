@@ -8,6 +8,8 @@ menu = [{'title': 'Главная', 'url_name': 'home'},
         {'title': 'Обратная связь', 'url_name': 'contact'},]
 
 class DataMixin:
+    paginate_by = 3
+
     def get_user_context(self, **kwargs):
         context = kwargs
         cats = Category.objects.annotate(Count('boards'))

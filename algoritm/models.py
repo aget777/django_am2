@@ -21,7 +21,7 @@ class Boards(models.Model):
     class Meta:
         verbose_name = 'Наши услуги'
         verbose_name_plural = 'Наши услуги'
-        ordering = ['-time_create', 'title']
+        ordering = ['id']
 
 
 class Category(models.Model):
