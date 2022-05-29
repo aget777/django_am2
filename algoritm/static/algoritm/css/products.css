@@ -38,12 +38,16 @@
     align-items: end;
 }
 
+.post__title-style{
+    text-decoration: none;
+}
 
 .content__title{
     font-weight: 700;
     font-size: 2.4rem;
     line-height: 2.8rem;
     color: #2B2B3A;
+    text-decoration: none;
     /*padding-bottom: 3rem;*/
     /*border-bottom: .1rem solid black;*/
 }

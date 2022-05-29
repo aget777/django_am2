@@ -29,7 +29,7 @@
                 {% for p in posts%}
                     <li class="container post__area">
                         <div class="d-flex flex-row title__row">
-                            <h4 class="content__title">{{ p.title }}</h4>
+                            <a href="{{ p.get_absolute_url }}" class="post__title-style"><h4 class="content__title">{{ p.title }}</h4></a>
                             <p>Категория: {{ p.cat}}</p>
                         </div>
                         <div class ="container">
