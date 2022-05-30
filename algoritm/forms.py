@@ -42,6 +42,13 @@ class LoginUserForm(AuthenticationForm):
     password = forms.CharField(max_length=255, label='pas_auth', help_text="Пароль", required=True,widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Введите пароль'}))
 
 
+
+class ContactForm(forms.Form):
+    name = forms.CharField(max_length=50, label='contact_name', help_text="Заголовок", required=True, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ваше имя'}))
+    email = forms.EmailField(max_length=255, label='contact_email',  help_text="Email", required=True,widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Введите email'}))
+    content = forms.CharField(max_length=100, label='contact_content',  help_text="Сообщение", widget=forms.Textarea(attrs={'cols': 40, 'rows':  5, 'class': 'input_area_space', 'placeholder': 'Введите сообщение'}))
+
+
 # class AddPostForm(forms.Form):
 #     title = forms.CharField(max_length=255, label='title', help_text="Заголовок", required=True, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Введите заголовок'}))
 #     slug = forms.SlugField(max_length=255, label='slug', help_text="URL", widget=forms.TextInput(attrs={'class': 'input_area_space', 'placeholder': 'Укажите Slug'}))

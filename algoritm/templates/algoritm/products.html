@@ -1,11 +1,15 @@
 {% extends 'algoritm/base.html' %}
 {% load algoritm_tags %}
+{% load cache %}
+
+
 {% block content%}
 <section class="container content__block">
         <div class="row">
             <div class="col-md-2 col-sm-4 m-10">
                 <nav class ="bg-light menu-vertical mb-5 h-100">
                     <ul class ="nav navbar-nav">
+<!--                        {% cache 60 sidebar %}-->
                         {% if cat_selected == 0 %}
                             <li class ="menu__item_verical  mb-4 mt-4">Все категории</li>
                         {% else %}
@@ -23,6 +27,7 @@
                                 {% endif %}
                             {% endif %}
                         {% endfor %}
+<!--                        {% endcache %}-->
                     </ul>
                 </nav>
             </div>
