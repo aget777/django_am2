@@ -2,7 +2,7 @@ from django import forms
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-
+from captcha.fields import CaptchaField
 from .models import *
 
 class AddPostForm(forms.ModelForm):
@@ -48,6 +48,7 @@ class ContactForm(forms.Form):
     email = forms.EmailField(max_length=255, label='contact_email',  help_text="Email", required=True,widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Введите email'}))
     content = forms.CharField(max_length=100, label='contact_content',  help_text="Сообщение", widget=forms.Textarea(attrs={'cols': 40, 'rows':  5, 'class': 'input_area_space', 'placeholder': 'Введите сообщение'}))
 
+    captcha = CaptchaField()
 
 # class AddPostForm(forms.Form):
 #     title = forms.CharField(max_length=255, label='title', help_text="Заголовок", required=True, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Введите заголовок'}))
