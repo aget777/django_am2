@@ -1,0 +1,30 @@
+:root{
+    text-decoration: none;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.8rem;
+    line-height: 2.1rem;
+    color: #000000;
+}
+
+body{
+    margin: 0;
+    font-family: 'Playfair Display';
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+
+
+#header{
+    background: #BAF1BE;
+    color: #000000;
+}
+
+#branding h1, #branding h1 a:link, #branding h1 a:visited{
+    color: #000000;
+}
+
+#header a:link, #header a:visited{
+    color: red;
+}
