@@ -6,12 +6,9 @@
             <div class="col-md-2 col-sm-4 m-10">
                 <nav class ="bg-light menu-vertical mb-5 h-100">
                     <ul class ="nav navbar-nav">
-                        {% if cat_selected == 0 %}
-                            <li class ="menu__item_verical  mb-4 mt-4">Все категории</li>
-                        {% else %}
-                            <li class="mb-4 mt-4"><a class ="menu__link_verical" href="{% url 'products' %}">Все категории</a></li>
-                        {% endif %}
-                            {% show_categories cat_selected=cat_selected %}
+
+                            <li class="mb-4 mt-4"><a class ="menu__link_verical" href="{% url 'products' %}">Назад</a></li>
+
 
                     </ul>
                 </nav>

@@ -1,0 +1,59 @@
+{% extends 'algoritm/base.html' %}
+{% load algoritm_tags %}
+
+
+
+{% block content%}
+<section class="container content__block">
+        <div class="row">
+            <div class="col-md-2 col-sm-4 m-10">
+                <nav class ="bg-light menu-vertical mb-5 h-100">
+                    <ul class ="nav navbar-nav">
+
+                        {% for f in formsList %}
+                           <li class="mb-4 mt-4">
+                               <a class ="menu__link_verical" href="{% url f.url_name %}">{{ f.title }}</a>
+                           </li>
+                        {% endfor %}
+                    </ul>
+                </nav>
+            </div>
+            <ul class="col-9">
+                <li class="container post__area">
+                    <div class="d-flex flex-row title__row">
+                        <a href="#" class="post__title-style"><h4 class="content__title">{{ title }}</h4></a>
+                    </div>
+                    <div class ="container">
+                        <form action="{% url 'api_wildberries_form' %}" method="POST" class="form_for_notes" id="ozon_form">
+                        {% csrf_token %}
+
+                        <div class="form-error">{{ form.non_field_errors }}</div>
+
+                        {% for f in form %}
+                            <div class="row notes__block align-items-center">
+                                  <label for="{{ f.id_for_label }}" class="col-2 form__block-text">{{ f.help_text  }}</label>
+                                  <div class="col-4">{{ f }}</div>
+                            </div>
+
+                            <div class="form-error">{{ f.errors }}</div>
+                        {% endfor %}
+
+                             <script type="text/javascript">
+                                document.getElementById('wb_uid').value = {{request.user.id}}
+                             </script>
+
+                        <div class="form-group row form__block-button">
+                            <div>
+                                  <div class="col-sm-2">
+                                    <button type="submit" value="{{request.user.id}}" class="header__login form__button button">Отправить</button>
+                                  </div>
+                            </div>
+                        </div>
+                    </form>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+{% endblock content%}

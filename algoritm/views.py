@@ -133,3 +133,90 @@ class LoginUser(DataMixin, LoginView):
 def logout_user(request):
     logout(request)
     return redirect('login')
+
+
+class FormsPage(DataMixin, ListView):
+
+    template_name = 'algoritm/formspage.html'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        c_def = self.get_user_context(title='Выбор формы')
+
+        return dict(list(context.items()) + list(c_def.items()))
+
+    def get_queryset(self):
+        return Boards.objects.filter(is_published=True)
+
+class AddPlan(LoginRequiredMixin, DataMixin, CreateView):
+    form_class = PlanForm
+    template_name = 'algoritm/page_plan_form.html'
+    success_url = reverse_lazy('home')
+    login_url = reverse_lazy('home')
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        c_def = self.get_user_context(title='Добавление Плана на месяц')
+
+        return dict(list(context.items()) + list(c_def.items()))
+
+class AddYandexDirectApiKey(LoginRequiredMixin, DataMixin, CreateView):
+    form_class = YandexDirectForm
+    template_name = 'algoritm/api_yandex_direct_form.html'
+    success_url = reverse_lazy('home')
+    login_url = reverse_lazy('home')
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        c_def = self.get_user_context(title='Добавление АПИ ключа Яндекс Директ')
+
+        return dict(list(context.items()) + list(c_def.items()))
+
+
+class AddYandexMetrikaApiKey(LoginRequiredMixin, DataMixin, CreateView):
+    form_class = YandexMetrikaForm
+    template_name = 'algoritm/api_yandex_metrika_form.html'
+    success_url = reverse_lazy('home')
+    login_url = reverse_lazy('home')
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        c_def = self.get_user_context(title='Добавление АПИ ключа Яндекс Метрика')
+
+        return dict(list(context.items()) + list(c_def.items()))
+
+class AddGoogleAnalyticsApiKey(LoginRequiredMixin, DataMixin, CreateView):
+    form_class = GoogleAnalyticsForm
+    template_name = 'algoritm/api_google_analytics_form.html'
+    success_url = reverse_lazy('home')
+    login_url = reverse_lazy('home')
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        c_def = self.get_user_context(title='Добавление АПИ ключа Google Analytics')
+
+        return dict(list(context.items()) + list(c_def.items()))
+
+class AddOzonApiKey(LoginRequiredMixin, DataMixin, CreateView):
+    form_class = OzonForm
+    template_name = 'algoritm/ozon_api_form.html'
+    success_url = reverse_lazy('home')
+    login_url = reverse_lazy('home')
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        c_def = self.get_user_context(title='Добавление АПИ ключа Ozon')
+
+        return dict(list(context.items()) + list(c_def.items()))
+
+class AddWildberriesApiKey(LoginRequiredMixin, DataMixin, CreateView):
+    form_class = WildberriesForm
+    template_name = 'algoritm/api_wildberries_form.html'
+    success_url = reverse_lazy('home')
+    login_url = reverse_lazy('home')
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        c_def = self.get_user_context(title='Добавление АПИ ключа Wildberries')
+
+        return dict(list(context.items()) + list(c_def.items()))

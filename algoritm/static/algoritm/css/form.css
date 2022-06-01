@@ -75,3 +75,17 @@ input::-webkit-inner-spin-button {
 .register__block-title{
     margin-bottom: 5rem;
 }
+
+/*Страница выбора формы*/
+
+.dashboard__area{
+    text-decoration: none;
+    list-style: none;
+    margin-bottom: 5rem;
+}
+
+.dashboard__area-block{
+    text-decoration: none;
+    margin: 3rem 0;
+    box-sizing: border-box;
+}

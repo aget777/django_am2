@@ -1,0 +1,38 @@
+{% extends 'algoritm/base.html' %}
+{% load algoritm_tags %}
+
+
+
+{% block content%}
+<section class="container content__block">
+        <div class="row">
+            <div class="col-md-2 col-sm-4 m-10">
+                <nav class ="bg-light menu-vertical mb-5 h-100">
+                    <ul class ="nav navbar-nav">
+
+                        {% for f in formsList %}
+                                   <li class="mb-4 mt-4">
+                                       <a class ="menu__link_verical" href="{% url f.url_name %}">{{ f.title }}</a></li>
+
+                        {% endfor %}
+
+                    </ul>
+                </nav>
+            </div>
+            <ul class="col-9 dashboard__area">
+                <li class="container">
+                    <div class="d-flex flex-row title__row">
+                        <a href="#" class="post__title-style"><h3 class="content__title">Здесь представлен вывод дашборда из Power BI</h3></a>
+                    </div>
+                    <div class ="container dashboard__area-block">
+                        <p class="row mb-1">Слевой стороны представлен перечень форм для заполнения  </p>
+                    </div>
+                    <div class="row">
+                        <iframe title="kwork_02_2704" width="1140" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=67e99772-ecf0-43cc-9861-07f3063bf001&autoAuth=true&ctid=2a5dab1a-f9ce-4f8f-b5ce-2c5dc28f8917&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLXdlc3QtZXVyb3BlLWItcHJpbWFyeS1yZWRpcmVjdC5hbmFseXNpcy53aW5kb3dzLm5ldC8ifQ%3D%3D" frameborder="0" allowFullScreen="true"></iframe>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+{% endblock content%}
